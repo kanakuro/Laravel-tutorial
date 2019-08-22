@@ -4,7 +4,10 @@
 Blog Post
 @endsection -->
 @section('title', 'Blog Posts') @section('content')
-<h1>Blog Post</h1>
+<h1>
+    <a href="{{ url('/posts/create') }}" class="header-menu">New Post</a>
+    Blog Post
+</h1>
 <ul>
     @forelse ($posts as $post)
     <li>
