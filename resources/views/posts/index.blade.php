@@ -12,9 +12,10 @@ Blog Post
     @forelse ($posts as $post)
     <li>
         <a
-            href="{{action('PostsController@show', $post-> id)}}"
+            href="{{ action('PostsController@show', $post) }}"
             >{{ $post -> title}}</a
         >
+        <a href="{{ action('PostsController@edit', $post) }}">edit</a>
     </li>
     @empty
     <li>no posts yet</li>

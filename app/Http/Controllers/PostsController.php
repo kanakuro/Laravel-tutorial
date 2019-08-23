@@ -19,10 +19,11 @@ class PostsController extends Controller
         return view('posts.index')->with('posts', $posts);
     }
     
-    public function show($id)
+    public function show(Post $post)
+    // public function show($id)
     {
         // $post=Post::find($id);
-        $post=Post::findOrFail($id);
+        // $post=Post::findOrFail($id);
         return view('posts.show')->with('post', $post);
     }
 
@@ -33,10 +34,18 @@ class PostsController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title'=>'required|min:3',
+            'body'=>'required'
+        ]);
         $post=new Post();
         $post->title = $request->title;
         $post->body = $request->body;
         $post->save();
         return redirect('/');
+    }
+    public function edit(Post $post)
+    {
+        return view('posts.edit')->with('post', $post);
     }
 }
