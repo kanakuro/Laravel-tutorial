@@ -5,4 +5,11 @@
 <p>
     {!! nl2br(e($post-> body)) !!}
 </p>
-@endsection
+<h2>Comments</h2>
+@forelse ($post-> comments as $comment)
+<li>
+    {{$comment-> body}}
+</li>
+@empty
+<li>no comments yet</li>
+@endforelse @endsection

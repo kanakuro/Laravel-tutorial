@@ -16,4 +16,6 @@ Route::get('/posts/create', 'PostsController@create');
 // Route::get('/posts/{id}', 'PostsController@show')->where('post', '[0-9]+');
 Route::get('/posts/{post}', 'PostsController@show')->where('post', '[0-9]+');
 Route::post('/posts', 'PostsController@store');
-Route::get('/edit/{post}', 'PostsController@edit');
+Route::get('/posts/{post}/edit', 'PostsController@edit');
+Route::patch('/posts/{post}', 'PostsController@update');
+Route::delete('/posts/{post}', 'PostsController@destroy');
